@@ -993,6 +993,7 @@ footer .copyright{
     }
 /* blog page */
     #blog{
+        overflow-x: hidden;
         grid-template-columns: repeat(2,1fr) !important;
         padding: 100px 0 0 20px !important;
         align-items: center;
