@@ -152,7 +152,7 @@ const productContainer = document.querySelector('.pro-container');
 
             // Setting event to redirect to the product detail page
             productElement.addEventListener('click', () => {
-                window.location.href = `sproduct.html?id=${product.id}`;
+                window.location.href = `sproduct.html?id=${product.id}&name=${product.name}`;
             });
 
             productContainer.appendChild(productElement);
