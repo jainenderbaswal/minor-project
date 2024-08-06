@@ -130,36 +130,75 @@ const productsObj = [
         price: '$75'
     }
 ];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+const AddItemsInCart=document.getElementsByClassName('cart');
 const productContainer = document.querySelector('.pro-container');
+const addToCart = (image,brand,name,rating,price,id) =>{    
+    const cartItemIndex = cart.findIndex(item => item.id === id);
+        if (cartItemIndex !== -1) {
+            console.log("inside cartItemINdex")
+            cart[cartItemIndex].quantity++;
+        } else {
+            cart.push({
+                id: id,
+                Image:image,
+                brand: brand,
+                name: name,
+                price: price,
+                quantity: 1
+            });
+        }
+        addToMemory();
+
+
+};
 
     productsObj.forEach(product=>{
+        const{image,brand,name,rating,price,id}=product;
         const productElement= document.createElement('div');
         productElement.className='pro'
-
+        productElement.dataset.id=id;
         productElement.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
+                <img src="${image}" alt="${name}">
                 <div class="des">
-                    <span>${product.brand}</span>
-                    <h5>${product.name}</h5>
+                    <span>${brand}</span>
+                    <h5>${name}</h5>
                     <div class="star">
-                        ${'<i class="fas fa-star"></i>'.repeat(product.rating)}
+                        ${'<i class="fas fa-star"></i>'.repeat(rating)}
                     </div>
-                    <h4>${product.price}</h4>
+                    <h4>${price}</h4>
                 </div>
-                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+                <a href="#" ><i class="fal fa-shopping-cart cart"></i></a>
             `;
 
-
-            // Setting event to redirect to the product detail page
-            productElement.addEventListener('click', () => {
-                window.location.href = `sproduct.html?id=${product.id}&name=${product.name}`;
-            });
+            // // Setting event to redirect to the product detail page
+            // productElement.addEventListener('click', () => {
+            //     window.location.href = `sproduct.html?id=${product.id}&name=${product.name}`;
+            //     console.log("productelement",productElement)
+            // });
 
             productContainer.appendChild(productElement);
     });
 
 
+// Event delegation to handle cart icon clicks
+productContainer.addEventListener('click', (e) => {
+    if (e.target.closest('.cart')) {
+        e.preventDefault();
+        const productElement = e.target.closest('.pro');
+        const id = productElement.dataset.id;
+        const product = productsObj.find(p => p.id === id);
 
+        if (product) {
+            addToCart(product.image, product.brand, product.name, product.rating, product.price, product.id);
+        }
+    }
+});
+
+ // Function to save cart to localStorage
+ function addToMemory() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
 
 
 });
