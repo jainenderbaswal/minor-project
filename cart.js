@@ -1,7 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
     const ItemsInCart = document.getElementById('cart');
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartTotalTable=document.getElementById('subtotal');
 
+  // Function to calculate cart totals
+  function calculateCartTotal() {
+    let subtotal = 0;
+
+    // Calculate subtotal
+    cart.forEach(item => {
+        const itemTotal = parseFloat(item.price.replace('$', '')) * item.quantity;
+        subtotal += itemTotal;
+    });
+
+    // Update total in the cart
+    cartTotalTable.innerHTML = `
+        <h3>Cart Totals</h3>
+        <table>
+            <tr>
+                <td>Cart Subtotal</td>
+                <td>${cart.length > 0 ? subtotal.toFixed(2) : '0.00'}</td>
+            </tr>
+            <tr>
+                <td>Shipping</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td><strong>${cart.length > 0 ? subtotal.toFixed(2) : '0.00'}</strong></td>
+            </tr>
+        </table>
+        <button class="normal">Proceed to checkout</button>
+    `;
+}
+
+  
     // Function to render cart items
     function renderCart() {
         if (cart.length === 0) {
@@ -39,9 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="plus" data-id="${item.id}">+</span>
                         </div>
                     </td>
-                    <td>${subtotal.toFixed(2)}</td>
+                    <td class='itemTotal'>${subtotal.toFixed(2)}</td>
                 </tr>
             `;
+            calculateCartTotal();
         });
 
         cartHTML += `
@@ -55,8 +89,12 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         ItemsInCart.innerHTML = cartHTML;
+
+
+        
     }
 
+   
     // Function to save cart to localStorage
     function addToMemory() {
         localStorage.setItem('cart', JSON.stringify(cart));

@@ -903,10 +903,29 @@ footer .copyright{
 /* Sign up page */
 #signup{
     margin:60px  auto;
-
-  
+ 
 }
 
+#signup .btn-success{
+    color: white !important;
+    background-color: rgba(20, 193, 69, 0.789);
+    border:1px solid #088178;
+}
+
+.qty-wrapper :where(.minus,.plus){
+    cursor: pointer;
+}
+.qty-wrapper {
+    border: 1px solid #9e8cb4;
+    background-color: #E3E6F3;
+    padding: .4rem;
+    font-size: 1rem;
+    color: #000;
+    border-radius: 5px;
+}
+.qty-wrapper span{
+    margin: 0 0.3rem;
+}
 
 /* media query starts here */
 
