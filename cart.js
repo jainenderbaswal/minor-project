@@ -4,15 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let cartTotalTable=document.getElementById('subtotal');
 
   // Function to calculate cart totals
-  function calculateCartTotal() {
+  function updateCartTotal() {
     let subtotal = 0;
 
     // Calculate subtotal
     cart.forEach(item => {
-        const itemTotal = parseFloat(item.price.replace('$', '')) * item.quantity;
+        const itemTotal = parseFloat(item.price.replace('₹', '')) * item.quantity;
         subtotal += itemTotal;
     });
 
+    console.log("cart length: ",cart.length)
     // Update total in the cart
     cartTotalTable.innerHTML = `
         <h3>Cart Totals</h3>
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderCart() {
         if (cart.length === 0) {
             ItemsInCart.innerHTML = '<p>Your cart is empty.</p>';
+            updateCartTotal();
             return;
         }
 
@@ -58,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         cart.forEach(item => {
-            const subtotal = parseFloat(item.price.replace('$', '')) * item.quantity;
+            const subtotal = parseFloat(item.price.replace('₹', '')) * item.quantity;
             cartHTML += `
                 <tr>
                     <td><a href="#" data-id="${item.id}"><i class="far fa-times-circle remove-item"></i></a></td>
@@ -75,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td class='itemTotal'>${subtotal.toFixed(2)}</td>
                 </tr>
             `;
-            calculateCartTotal();
+            updateCartTotal();
         });
 
         cartHTML += `

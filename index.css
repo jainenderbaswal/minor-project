@@ -168,7 +168,7 @@ body{
 #feature{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     background-color: lavender;
 }
@@ -181,7 +181,7 @@ body{
     box-shadow: 0.2em 0.4em 0.3em rgba(181, 22, 192, 0.2);
     border:1px solid #cce7d0;
     border-radius: 0.3rem;
-    margin: 1rem 0;
+    margin: 1rem 0.8rem;
     transition: 0.2s ease;
 }
 #feature .fe-box:hover{

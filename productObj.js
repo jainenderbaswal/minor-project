@@ -7,7 +7,7 @@ const productsObj = [
         brand: 'adidas',
         name: 'Adidas Superstar Sneakers',
         rating: 4,
-        price: '$95'
+        price: '₹95'
     },
     {
         id: 'p2',
@@ -15,7 +15,7 @@ const productsObj = [
         brand: 'adidas',
         name: 'Adidas Ultraboost 21',
         rating: 5,
-        price: '$180'
+        price: '₹180'
     },
     {
         id: 'p3',
@@ -23,7 +23,7 @@ const productsObj = [
         brand: 'nike',
         name: 'Nike Air Max 270',
         rating: 4,
-        price: '$150'
+        price: '₹150'
     },
     {
         id: 'p4',
@@ -31,7 +31,7 @@ const productsObj = [
         brand: 'nike',
         name: 'Nike ZoomX Vaporfly NEXT%',
         rating: 5,
-        price: '$250'
+        price: '₹250'
     },
     {
         id: 'p5',
@@ -39,7 +39,7 @@ const productsObj = [
         brand: 'puma',
         name: 'Puma RS-X3 Puzzle',
         rating: 4,
-        price: '$120'
+        price: '₹120'
     },
     {
         id: 'p6',
@@ -47,7 +47,7 @@ const productsObj = [
         brand: 'puma',
         name: 'Puma Future Rider',
         rating: 4,
-        price: '$130'
+        price: '₹130'
     },
     {
         id: 'p7',
@@ -55,7 +55,7 @@ const productsObj = [
         brand: 'converse',
         name: 'Converse Chuck Taylor All Star',
         rating: 4,
-        price: '$65'
+        price: '₹65'
     },
     {
         id: 'p8',
@@ -63,7 +63,7 @@ const productsObj = [
         brand: 'converse',
         name: 'Converse One Star Pro',
         rating: 4,
-        price: '$80'
+        price: '₹80'
     },
     {
         id: 'p9',
@@ -71,7 +71,7 @@ const productsObj = [
         brand: 'new balance',
         name: 'New Balance 990v5',
         rating: 5,
-        price: '$185'
+        price: '₹185'
     },
     {
         id: 'p10',
@@ -79,7 +79,7 @@ const productsObj = [
         brand: 'new balance',
         name: 'New Balance 574 Classic',
         rating: 4,
-        price: '$80'
+        price: '₹80'
     },
     {
         id: 'p11',
@@ -87,7 +87,7 @@ const productsObj = [
         brand: 'new balance',
         name: 'New Balance 1080v12',
         rating: 5,
-        price: '$150'
+        price: '₹150'
     },
     {
         id: 'p12',
@@ -95,7 +95,7 @@ const productsObj = [
         brand: 'new balance',
         name: 'New Balance Fresh Foam Beacon',
         rating: 4,
-        price: '$110'
+        price: '₹110'
     },
     {
         id: 'p13',
@@ -103,7 +103,7 @@ const productsObj = [
         brand: 'adidas',
         name: 'Adidas NMD_R1',
         rating: 5,
-        price: '$140'
+        price: '₹140'
     },
     {
         id: 'p14',
@@ -111,7 +111,7 @@ const productsObj = [
         brand: 'nike',
         name: 'Nike Air Force 1',
         rating: 4,
-        price: '$100'
+        price: '₹100'
     },
     {
         id: 'p15',
@@ -119,7 +119,7 @@ const productsObj = [
         brand: 'puma',
         name: 'Puma Clyde Court',
         rating: 4,
-        price: '$130'
+        price: '₹130'
     },
     {
         id: 'p16',
@@ -127,7 +127,7 @@ const productsObj = [
         brand: 'converse',
         name: 'Converse Jack Purcell',
         rating: 4,
-        price: '$75'
+        price: '₹75'
     }
 ];
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
