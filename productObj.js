@@ -171,11 +171,14 @@ const addToCart = (image,brand,name,rating,price,id) =>{
                 <a href="#" ><i class="fal fa-shopping-cart cart"></i></a>
             `;
 
+            
+
             // // Setting event to redirect to the product detail page
-            // productElement.addEventListener('click', () => {
-            //     window.location.href = `sproduct.html?id=${product.id}&name=${product.name}`;
-            //     console.log("productelement",productElement)
-            // });
+            productElement.addEventListener('click', (e) => {
+                if(!e.target.classList.contains('cart')){
+                    window.location.href = `sproduct.html?id=${product.id}&name=${product.name}`;
+                }
+            });
 
             productContainer.appendChild(productElement);
     });
